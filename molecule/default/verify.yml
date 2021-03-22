@@ -1,0 +1,15 @@
+---
+- name: Verify
+  hosts: all
+
+  tasks:
+    - name: Collect package facts.
+      package_facts:
+        manager: "auto"
+
+    - name: Verify ranger is installed.
+      assert:
+        that:
+          - "'ranger' in ansible_facts.packages"
+        success_msg: "ranger is installed."
+        fail_msg: "ranger is not installed."
