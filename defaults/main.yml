@@ -1,1 +1,26 @@
 ---
+ranger_user_home: "{{ ansible_user_home }}"
+
+ranger_package_name: ranger
+ranger_shared_packages:
+  - file
+  - highlight
+  - libimage-exiftool-perl
+  - mediainfo
+  # provides pdftotext
+  - poppler-utils
+  - w3m
+  - w3m-img
+ranger_exclusive_packages:
+  # provides img2txt
+  - libcaca0
+  - odt2txt
+
+ranger_plugins:
+  - https://github.com/alexanderjeurissen/ranger_devicons
+ranger_plugin_directory: ~/.config/ranger/plugins
+
+ranger_python2_packages:
+  - python-chardet
+ranger_python3_packages:
+  - python3-chardet
