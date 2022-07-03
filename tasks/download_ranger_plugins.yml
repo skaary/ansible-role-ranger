@@ -1,0 +1,10 @@
+---
+- name: determine directory name for ranger plugin
+  set_fact:
+    ranger_plugin_directory_name: "{{ plugin|basename }}"
+
+- name: download ranger plugin
+  git:
+    repo: "{{ item }}"
+    dest: "{{ ranger_plugin_directory }}/{{ ranger_plugin_directory_name }}"
+  with_items: "{{ ranger_plugins }}"

@@ -3,8 +3,16 @@
   apt:
     name: "{{ [ranger_package_name] + ranger_shared_packages + ranger_exclusive_packages }}"
     state: present
+  become: true
 
-- name: ensure ranger python packages are installed
-  apt:
-    name: "{{ ranger_python2_packages + ranger_python3_packages }}"
-    state: present
+# - name: ensure ranger python packages are installed
+#   pip:
+#     name: "{{ ranger_python2_packages + ranger_python3_packages }}"
+#     state: present
+#   become: true
+
+- name: ensure ranger plugins are installed
+  git:
+    repo: "{{ item.repository }}"
+    dest: "{{ ranger_plugin_directory }}/{{ item.directory }}"
+  loop: "{{ ranger_plugins }}"
