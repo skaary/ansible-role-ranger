@@ -10,15 +10,18 @@ ranger_shared_packages:
   # provides pdftotext
   - poppler-utils
   - w3m
-  - w3m-img
+  - w3m-img  #imgpreview
+  - bat  #colored output
 ranger_exclusive_packages:
   # provides img2txt
   - libcaca0
   - odt2txt
 
 ranger_plugins:
-  - https://github.com/alexanderjeurissen/ranger_devicons
-ranger_plugin_directory: ~/.config/ranger/plugins
+  - repository: https://github.com/alexanderjeurissen/ranger_devicons.git
+    directory: devicons
+
+ranger_plugin_directory: ~/.config/ranger/plugins/
 
 ranger_python2_packages:
   - python-chardet
