@@ -2,7 +2,11 @@
 skip_list:
   - 'risky-shell-pipe'
   - 'fqcn-builtins'
-  
+  - 'git-latest'
+  - 'yaml'
+  - 'var-spacing'
+
+
 warn_list:
   - 'experimental'
   - 'internal-error'
